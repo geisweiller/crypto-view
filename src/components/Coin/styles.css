@@ -1,0 +1,18 @@
+.Coin {
+  width: 100%;
+
+  color: #F5F5F5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Coin.down{
+  color: #ff4976;
+}
+
+.Coin.up{
+  color: #4bffb5;
+}
