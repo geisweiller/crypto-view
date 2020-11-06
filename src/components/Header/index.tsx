@@ -4,7 +4,7 @@ import { Coin } from '../Coin/index';
 import { api } from '../../services/api';
 
 interface HeaderTypes {
-
+  onSelected: (coin: string) => void;
 };
 
 interface Price {
@@ -21,7 +21,7 @@ const ALL_PRICES = {
 
 export const Header: React.FC<HeaderTypes> = (props) => {
   const [prices, setPrices] = useState<Price>(ALL_PRICES);
-
+  const {onSelected} = props;
 
   useEffect(() => {
     const intervals = Object.keys(ALL_PRICES).map((coin) => {
@@ -53,11 +53,17 @@ export const Header: React.FC<HeaderTypes> = (props) => {
 
   return ( 
 
-    <div className='Header'>
+    <div className='Header'> 
         {
           Object.keys(prices).map((coin) => {
             return(
-              <Coin key={coin} coin={coin} oldPrice={prices[coin].oldPrice} currentPrice={prices[coin].currentPrice}/>
+              <div key={coin} onClick={() => onSelected(coin)}>
+                <Coin  
+                  coin={coin} 
+                  oldPrice={prices[coin].oldPrice}  
+                  currentPrice={prices[coin].currentPrice}
+              />
+              </div>
             )
           })
         }

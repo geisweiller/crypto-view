@@ -10,9 +10,32 @@
 }
 
 .Coin.down{
+  width: 100%;
+
   color: #ff4976;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Coin.up{
+  width: 100%;
+
   color: #4bffb5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CoinContent {
+  font-size: 0.8rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
