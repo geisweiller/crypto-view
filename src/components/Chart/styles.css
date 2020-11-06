@@ -2,4 +2,11 @@
   flex: 1 1 auto;
   position: relative;
 
+    }
+
+.ChartContainer {
+
+  height: 100%;
+  padding: 2.5rem;
+  background: #F5F5F5;
 }

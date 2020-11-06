@@ -37,8 +37,6 @@ export  const Chart: React.FC<ChartTypes> = (props) => {
     return() => clearInterval(interval)
   }, [coin, chartLoaded]);
 
-
-
   useEffect(() => {
     api.get(`histoday?fsym=${coin}&tsym=BRL&limit=300`)
     .then(response => {
@@ -59,35 +57,32 @@ export  const Chart: React.FC<ChartTypes> = (props) => {
     setPrices([]);
   }, [coin]);
 
-
   useEffect(() => {
     if(candleSeriesRef.current) {
       candleSeriesRef.current.setData(prices);
     }
   }, [prices])
 
-
-
-
   useEffect(() => {
     const chart = createChart(containerRef.current, {
       width: containerRef.current.clientWidth,
-      height: containerRef.current.clientHeight,
+      height: 600,
       layout: {
-        backgroundColor: '#202020',
-        textColor: '#F5F5F5',
+        backgroundColor: '#363636',
+        textColor: '#FFF',
       },
       grid: {
         vertLines: {
-          color: '#363636'
+          color: '#202020'
         },
         horzLines: {
-          color: '#363636'
+          color: '#202020'
         },
       },
         crosshair: {
           mode: CrosshairMode.Normal
         },
+        
         //@ts-ignore
         priceScale: {
           borderColor: '#404040'
@@ -110,8 +105,10 @@ export  const Chart: React.FC<ChartTypes> = (props) => {
 
 
   return (
-    <div className='Chart' ref={containerRef}>
-      <ChartKey chartKey={coin}/>
+    <div className='ChartContainer'>
+      <div className='Chart' ref={containerRef}>
+        <ChartKey chartKey={coin}/>
+      </div>
     </div>
   )
 }

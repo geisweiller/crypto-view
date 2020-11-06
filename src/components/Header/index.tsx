@@ -16,6 +16,8 @@ const ALL_PRICES = {
   LTC: {oldPrice:0, currentPrice:0},
   ETH: {oldPrice:0, currentPrice:0},
   LINK: {oldPrice:0, currentPrice:0},
+  XRP: {oldPrice:0, currentPrice:0},
+  EOS: {oldPrice:0, currentPrice:0},
 }
 
 
@@ -57,13 +59,13 @@ export const Header: React.FC<HeaderTypes> = (props) => {
         {
           Object.keys(prices).map((coin) => {
             return(
-              <div key={coin} onClick={() => onSelected(coin)}>
+              <button type='button' key={coin} onClick={() => onSelected(coin)}>
                 <Coin  
                   coin={coin} 
                   oldPrice={prices[coin].oldPrice}  
                   currentPrice={prices[coin].currentPrice}
               />
-              </div>
+              </button>
             )
           })
         }
